@@ -190,7 +190,7 @@ export default function LevelDetailPage() {
               </h3>
             </div>
             <p className="text-green-700 dark:text-green-300 mb-4">
-              Congratulations! You've mastered all courses in this level.
+              Congratulations! You&apos;ve mastered all courses in this level.
             </p>
             {levelId < 5 && (
               <Link

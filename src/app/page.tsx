@@ -133,7 +133,7 @@ export default function HomePage() {
 
         {/* Level Details */}
         <section className="space-y-6">
-          <h2 className="text-3xl font-bold text-center">What You'll Master</h2>
+          <h2 className="text-3xl font-bold text-center">What You&apos;ll Master</h2>
           <div className="space-y-4">
             {levels.slice(0, 3).map((level, index) => (
               <Card key={level.id} className="hover:shadow-lg transition-all duration-200">

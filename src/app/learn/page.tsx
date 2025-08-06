@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { puzzles } from "@/lib/puzzles";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, Button, Progress } from "@/components/ui/primitives";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, Progress } from "@/components/ui/primitives";
 import Nav from "@/components/layout/Nav";
 
 export const dynamic = "force-static";

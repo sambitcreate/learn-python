@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { Progress } from "../ui/primitives";
-import { levels, getCompletedCourses, getAllCourses } from "@/lib/levels";
+import { getCompletedCourses, getAllCourses } from "@/lib/levels";
 
 export default function Nav() {
   const pathname = usePathname();

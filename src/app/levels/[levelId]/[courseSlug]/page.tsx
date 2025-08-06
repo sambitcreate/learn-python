@@ -1,16 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { getCourse, getLevel, markCourseCompleted, getCompletedCourses } from "@/lib/levels";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, Button } from "@/components/ui/primitives";
+import { Card, CardContent, CardHeader, CardTitle, Button } from "@/components/ui/primitives";
 import Nav from "@/components/layout/Nav";
 import { ArrowLeft, CheckCircle, Lightbulb, BookOpen, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function CoursePage() {
   const params = useParams();
-  const router = useRouter();
+
   const levelId = parseInt(params.levelId as string);
   const courseSlug = params.courseSlug as string;
   
