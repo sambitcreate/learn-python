@@ -45,7 +45,7 @@ export default function CoursePage() {
             <h1 className="text-2xl font-semibold mb-4">Course Not Found</h1>
             <Link 
               href="/levels"
-              className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200"
+              className="inline-flex items-center text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-200"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Levels
@@ -113,7 +113,7 @@ export default function CoursePage() {
         <section className="space-y-4">
           <Link 
             href={`/levels/${levelId}`}
-            className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors"
+            className="inline-flex items-center text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-200 transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to {level.title}
@@ -155,10 +155,10 @@ export default function CoursePage() {
           )}
 
           {/* Question Card */}
-          <Card className="border-2 border-blue-200 dark:border-blue-800">
+          <Card className="border-2 border-green-200 dark:border-green-800">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <BookOpen className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                <BookOpen className="w-5 h-5 text-green-600 dark:text-green-400" />
                 Challenge
               </CardTitle>
             </CardHeader>
@@ -172,7 +172,7 @@ export default function CoursePage() {
                   onChange={(e) => setUserAnswer(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder={course.placeholder || "Enter your answer..."}
-                  className="w-full px-4 py-3 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-3 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all"
                   disabled={isCorrect === true}
                 />
                 
@@ -180,7 +180,7 @@ export default function CoursePage() {
                   <Button
                     onClick={checkAnswer}
                     disabled={!userAnswer.trim() || isCorrect === true}
-                    className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-700"
+                    className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-700"
                   >
                     Check Answer
                   </Button>
@@ -209,8 +209,8 @@ export default function CoursePage() {
               )}
 
               {isCorrect === false && (
-                <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
-                  <p className="text-red-700 dark:text-red-300">
+                <div className="p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg">
+                  <p className="text-amber-700 dark:text-amber-300">
                     Not quite right. Try again!
                   </p>
                 </div>

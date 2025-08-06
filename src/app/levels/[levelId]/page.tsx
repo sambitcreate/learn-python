@@ -45,7 +45,7 @@ export default function LevelDetailPage() {
             <h1 className="text-2xl font-semibold mb-4">Level Not Found</h1>
             <Link 
               href="/levels"
-              className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200"
+              className="inline-flex items-center text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-200"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Levels
@@ -72,7 +72,7 @@ export default function LevelDetailPage() {
         <section className="space-y-4">
           <Link 
             href="/levels"
-            className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors"
+            className="inline-flex items-center text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-200 transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to All Levels
@@ -82,7 +82,7 @@ export default function LevelDetailPage() {
             <div className={`w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold ${
               progress === 100 
                 ? 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300'
-                : 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300'
+                : 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300'
             }`}>
               {progress === 100 ? (
                 <CheckCircle className="w-8 h-8" />
@@ -111,7 +111,7 @@ export default function LevelDetailPage() {
               className={`h-3 ${
                 progress === 100 
                   ? '[&>div]:bg-green-500' 
-                  : '[&>div]:bg-blue-500'
+                  : '[&>div]:bg-green-500'
               }`}
             />
           </div>
