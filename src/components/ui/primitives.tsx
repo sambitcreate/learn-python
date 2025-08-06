@@ -16,11 +16,11 @@ export function Button({
   const base =
     "inline-flex items-center justify-center rounded-md font-medium transition-all duration-700 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none transform active:scale-95 hover:scale-[1.02] active:transition-transform active:duration-75";
   const variants: Record<string, string> = {
-    default: "bg-black text-white hover:bg-black/90 hover:shadow-lg dark:bg-white dark:text-black dark:hover:bg-white/90 dark:hover:shadow-lg",
-    secondary: "bg-zinc-100 text-zinc-900 hover:bg-zinc-200 hover:shadow-md dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700 dark:hover:shadow-lg",
-    ghost: "bg-transparent hover:bg-zinc-100 hover:shadow-sm dark:hover:bg-zinc-800 dark:hover:shadow-lg",
-    destructive: "bg-red-600 text-white hover:bg-red-700 hover:shadow-lg",
-    outline: "border border-zinc-200 hover:bg-zinc-50 hover:shadow-md hover:border-zinc-300 dark:border-zinc-800 dark:hover:bg-zinc-900 dark:hover:shadow-lg dark:hover:border-zinc-700",
+    default: "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg",
+    secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:shadow-md",
+    ghost: "bg-transparent hover:bg-accent/10 hover:shadow-sm",
+    destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 hover:shadow-lg",
+    outline: "border border-border hover:bg-accent/5 hover:shadow-md hover:border-border/80",
   };
   const sizes: Record<string, string> = {
     sm: "h-8 px-3 text-sm",
@@ -31,7 +31,7 @@ export function Button({
 }
 
 export function Card({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm transition-all duration-700 ease-out hover:shadow-lg hover:scale-[1.02] hover:border-zinc-300 dark:hover:border-zinc-700", className)} {...props} />;
+  return <div className={cn("rounded-xl border border-border bg-card text-card-foreground shadow-sm transition-all duration-700 ease-out hover:shadow-lg hover:scale-[1.02] hover:border-border/80", className)} {...props} />;
 }
 export function CardHeader({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return <div className={cn("p-6 pb-0", className)} {...props} />;
@@ -40,7 +40,7 @@ export function CardTitle({ className, ...props }: React.HTMLAttributes<HTMLHead
   return <h3 className={cn("text-lg font-semibold tracking-tight", className)} {...props} />;
 }
 export function CardDescription({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
-  return <p className={cn("text-sm text-zinc-500 dark:text-zinc-400", className)} {...props} />;
+  return <p className={cn("text-sm text-muted-foreground", className)} {...props} />;
 }
 export function CardContent({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return <div className={cn("p-6", className)} {...props} />;
@@ -55,7 +55,7 @@ export const Input = React.forwardRef<HTMLInputElement, React.InputHTMLAttribute
       <input
         ref={ref}
         className={cn(
-          "flex h-10 w-full rounded-md border border-zinc-300 dark:border-zinc-700 bg-transparent px-3 py-2 text-sm ring-offset-white dark:ring-offset-black file:border-0 placeholder:text-zinc-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black dark:focus-visible:ring-white transition-all duration-600 ease-out hover:border-zinc-400 dark:hover:border-zinc-600 hover:shadow-sm focus:scale-[1.01] focus:shadow-md",
+          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-all duration-600 ease-out hover:border-input/80 hover:shadow-sm focus:scale-[1.01] focus:shadow-md",
           className
         )}
         {...props}
@@ -68,9 +68,9 @@ Input.displayName = "Input";
 export function Progress({ value, className }: { value: number; className?: string }) {
   const v = Math.max(0, Math.min(100, value));
   return (
-    <div className={cn("w-full h-2 rounded-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden transition-all duration-700 hover:h-3 hover:shadow-sm", className)}>
+    <div className={cn("w-full h-2 rounded-full bg-secondary overflow-hidden transition-all duration-700 hover:h-3 hover:shadow-sm", className)}>
       <div
-        className="h-full bg-black dark:bg-white transition-all duration-500 ease-out"
+        className="h-full bg-primary transition-all duration-500 ease-out"
         style={{ width: `${v}%` }}
       />
     </div>

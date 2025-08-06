@@ -219,6 +219,8 @@ Your support helps maintain and improve this free educational resource!
 - UI components inspired by [shadcn/ui](https://ui.shadcn.com/)
 - Python educational content curated for progressive learning
 - Community contributions and feedback
+- Special thanks to [TweakCN](https://github.com/jnsahaj/tweakcn) for the Neo Brutalism theme. [Try it out here](https://tweakcn.com/editor/theme?theme=neo-brutalism)
+- Special thanks to [Anthropic](https://www.anthropic.com/) and [Claude Sonnet 4.0](https://www.anthropic.com/news/claude-4) for their AI assistance in developing this project
 
 ## 📊 Project Stats
 

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { levels } from "@/lib/levels";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/primitives";
 import Nav from "@/components/layout/Nav";
-import { BookOpen, Target, Trophy, Zap } from "lucide-react";
+import { BookOpen, Target, Trophy, Zap, ChevronDown } from "lucide-react";
 
 export const dynamic = "force-static";
 
@@ -10,12 +10,12 @@ export default function HomePage() {
   const totalCourses = levels.reduce((sum, level) => sum + level.courses.length, 0);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black text-zinc-900 dark:text-zinc-100">
+    <div className="bg-white dark:bg-black text-zinc-900 dark:text-zinc-100">
       <Nav />
-      <main className="mx-auto max-w-5xl px-4 py-8 space-y-12">
-        {/* Hero Section */}
-        <section className="text-center space-y-6 py-12">
-          <h1 className="text-5xl font-bold tracking-tight text-black dark:text-white">
+      {/* Hero Section - Full Viewport Height */}
+      <section className="min-h-screen flex flex-col justify-center items-center text-center space-y-8 px-4 relative">
+        <div className="space-y-6">
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-black dark:text-white">
             Master Python Programming
           </h1>
           <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
@@ -36,10 +36,18 @@ export default function HomePage() {
               View All Levels
             </Link>
           </div>
-        </section>
+          
+          {/* Down Arrow */}
+          <div className="mt-8 flex justify-center animate-bounce">
+            <ChevronDown className="w-8 h-8 text-zinc-400 dark:text-zinc-600" />
+          </div>
+        </div>
+      </section>
+
+      <main className="mx-auto max-w-5xl px-4 py-16 space-y-16">
 
         {/* Learning Path */}
-        <section className="space-y-8">
+        <section className="space-y-8 py-8">
           <div className="text-center space-y-2">
             <h2 className="text-3xl font-bold">Your Learning Path</h2>
             <p className="text-zinc-600 dark:text-zinc-400">
