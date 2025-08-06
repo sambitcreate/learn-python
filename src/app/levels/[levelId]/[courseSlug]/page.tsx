@@ -18,7 +18,7 @@ export default function CoursePage() {
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [showHint, setShowHint] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
-  const [showLesson, setShowLesson] = useState(false);
+  // Always show lessons - removed conditional state
 
   const level = getLevel(levelId);
   const course = getCourse(levelId, courseSlug);
@@ -30,9 +30,8 @@ export default function CoursePage() {
     const courseKey = `${levelId}-${courseSlug}`;
     setIsCompleted(completed.includes(courseKey));
     
-    // Show lesson immediately if course is already completed
+    // Set completion status
     if (completed.includes(courseKey)) {
-      setShowLesson(true);
       setIsCorrect(true);
     }
   }, [course, levelId, courseSlug]);
@@ -83,7 +82,6 @@ export default function CoursePage() {
     setIsCorrect(correct);
     
     if (correct) {
-      setShowLesson(true);
       if (!isCompleted) {
         markCourseCompleted(levelId, courseSlug);
         setIsCompleted(true);
@@ -139,6 +137,23 @@ export default function CoursePage() {
 
         {/* Main Content */}
         <div className="space-y-6">
+          {/* Lesson Card - Always displayed first */}
+          {course.lesson && (
+            <Card className="border-2 border-green-200 dark:border-green-800">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-green-700 dark:text-green-300">
+                  <BookOpen className="w-5 h-5" />
+                  📖 Lesson
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-green-800 dark:text-green-200 leading-relaxed prose prose-green dark:prose-invert max-w-none">
+                  <div dangerouslySetInnerHTML={{ __html: course.lesson }} />
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
           {/* Question Card */}
           <Card className="border-2 border-blue-200 dark:border-blue-800">
             <CardHeader>
@@ -216,22 +231,7 @@ export default function CoursePage() {
             </CardContent>
           </Card>
 
-          {/* Lesson Card */}
-          {showLesson && course.lesson && (
-            <Card className="border-2 border-green-200 dark:border-green-800">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-green-700 dark:text-green-300">
-                  <BookOpen className="w-5 h-5" />
-                  Lesson
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-green-800 dark:text-green-200 leading-relaxed">
-                  {course.lesson}
-                </p>
-              </CardContent>
-            </Card>
-          )}
+          {/* Lesson moved above - removed duplicate */}
 
           {/* Navigation */}
           {isCorrect === true && (

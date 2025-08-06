@@ -27,11 +27,14 @@ const level1Courses: Course[] = [
     placeholder: 'Type the exact function name...',
     rule: { type: "equals", value: "print" },
     hint: 'Try: print("Hello")',
-    lesson: `The print() function is one of the most fundamental and frequently used functions in Python programming. It serves as your primary tool for displaying output to the console, making it essential for debugging, user interaction, and program feedback. Whether you're showing results of calculations, displaying messages to users, or debugging your code by checking variable values, print() is your go-to function.
-
-In Python 3, print() is a function that requires parentheses, unlike Python 2 where it was a statement. You can print strings by enclosing them in quotes: print("Hello, World!"), numbers directly: print(42), or variables: print(my_variable). The function automatically adds a newline character at the end, so each print() call appears on a new line. You can also print multiple items by separating them with commas: print("The answer is", 42).
-
-The print() function is incredibly versatile and accepts various parameters to customize its behavior. You can change the separator between items using the sep parameter, modify the ending character with end, and even redirect output to files using the file parameter. Understanding print() thoroughly will make your Python journey much smoother and help you build interactive programs from day one.`,
+    lesson: `<ul>
+<li><strong>Primary Purpose:</strong> The print() function displays output to the console, essential for debugging, user interaction, and program feedback</li>
+<li><strong>Python 3 Syntax:</strong> Requires parentheses: print("Hello, World!") - unlike Python 2 where it was a statement</li>
+<li><strong>Versatile Input:</strong> Can print strings, numbers, variables, or multiple items separated by commas</li>
+<li><strong>Automatic Formatting:</strong> Adds a newline character at the end of each print() call</li>
+<li><strong>Customizable Parameters:</strong> Use sep to change separators, end to modify ending characters, file to redirect output</li>
+<li><strong>Essential Skill:</strong> Understanding print() thoroughly makes Python development much smoother from day one</li>
+</ul>`,
   },
   {
     slug: 'comments',
@@ -40,11 +43,14 @@ The print() function is incredibly versatile and accepts various parameters to c
     prompt: 'Which character starts a single-line comment in Python?',
     rule: { type: "equals", value: "#" },
     hint: 'Common across many languages for quick notes.',
-    lesson: `Comments are crucial for writing maintainable and understandable code. They allow you to add explanations, notes, and documentation directly within your code without affecting its execution. In Python, single-line comments begin with the hash symbol (#), and everything after this symbol on the same line is ignored by the Python interpreter. This makes comments perfect for explaining complex logic, documenting your thought process, or temporarily disabling code during development.
-
-Good commenting practices involve explaining why something is done rather than what is being done. For example, instead of writing "# increment x by 1", write "# adjust for zero-based indexing". Comments should add value and context that isn't immediately obvious from reading the code itself. They're particularly useful for explaining business logic, algorithm choices, or any non-obvious implementation details.
-
-Python also supports multi-line comments using triple quotes (""" or '''). While technically these are string literals, when not assigned to a variable, they effectively serve as multi-line comments. However, for single-line explanations, the # symbol remains the standard and most readable approach. Remember, well-commented code is a gift to your future self and your teammates.`,
+    lesson: `<ul>
+<li><strong>Purpose:</strong> Comments add explanations and documentation without affecting code execution</li>
+<li><strong>Single-line Syntax:</strong> Use # symbol - everything after it on the same line is ignored by Python</li>
+<li><strong>Best Practices:</strong> Explain "why" rather than "what" - focus on reasoning and context</li>
+<li><strong>Value Addition:</strong> Document business logic, algorithm choices, and non-obvious implementation details</li>
+<li><strong>Multi-line Option:</strong> Use triple quotes (""" or ''') for longer explanations</li>
+<li><strong>Team Benefit:</strong> Well-commented code helps your future self and teammates understand your work</li>
+</ul>`,
   },
   {
     slug: 'variables',
