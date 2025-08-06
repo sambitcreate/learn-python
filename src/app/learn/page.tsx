@@ -28,7 +28,7 @@ export default function LearnIndexPage() {
               <CardContent className="flex items-center justify-between">
                 <Link
                   href={`/learn/${p.slug}`}
-                  className="inline-flex h-10 items-center rounded-md bg-black px-4 text-sm font-medium text-white transition-all duration-200 ease-out hover:bg-black/90 hover:shadow-lg hover:scale-[1.02] active:scale-95 active:transition-transform active:duration-75 dark:bg-white dark:text-black dark:hover:bg-white/90 dark:hover:shadow-lg"
+                  className="inline-flex h-10 items-center rounded-md bg-black px-4 text-sm font-medium text-white transition-all duration-700 ease-out hover:bg-black/90 hover:shadow-lg hover:scale-[1.02] active:scale-95 active:transition-transform active:duration-75 dark:bg-white dark:text-black dark:hover:bg-white/90 dark:hover:shadow-lg"
                 >
                   Start
                 </Link>

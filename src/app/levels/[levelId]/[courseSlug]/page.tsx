@@ -165,7 +165,7 @@ export default function CoursePage() {
                   <Button
                     onClick={checkAnswer}
                     disabled={!userAnswer.trim() || isCorrect === true}
-                    className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                    className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-700"
                   >
                     Check Answer
                   </Button>
@@ -174,7 +174,7 @@ export default function CoursePage() {
                     <Button
                       onClick={() => setShowHint(true)}
                       variant="outline"
-                      className="px-4 py-2 border border-amber-300 text-amber-700 dark:text-amber-300 hover:bg-amber-50 dark:hover:bg-amber-900/20 transition-all"
+                      className="px-4 py-2 border border-amber-300 text-amber-700 dark:text-amber-300 hover:bg-amber-50 dark:hover:bg-amber-900/20 transition-all duration-700"
                     >
                       <Lightbulb className="w-4 h-4 mr-2" />
                       Hint
@@ -247,7 +247,7 @@ export default function CoursePage() {
               {nextCourse ? (
                 <Link
                   href={`/levels/${levelId}/${nextCourse.slug}`}
-                  className="inline-flex items-center px-6 py-3 bg-black text-white dark:bg-white dark:text-black rounded-lg hover:bg-black/90 dark:hover:bg-white/90 transition-all hover:shadow-lg hover:scale-[1.02]"
+                  className="inline-flex items-center px-6 py-3 bg-black text-white dark:bg-white dark:text-black rounded-lg hover:bg-black/90 dark:hover:bg-white/90 transition-all duration-700 hover:shadow-lg hover:scale-[1.02]"
                 >
                   Next Course
                   <ArrowRight className="w-4 h-4 ml-2" />
@@ -255,7 +255,7 @@ export default function CoursePage() {
               ) : (
                 <Link
                   href="/levels"
-                  className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all hover:shadow-lg hover:scale-[1.02]"
+                  className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all duration-700 hover:shadow-lg hover:scale-[1.02]"
                 >
                   View All Levels
                   <ArrowRight className="w-4 h-4 ml-2" />

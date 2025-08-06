@@ -125,7 +125,7 @@ export default function LevelDetailPage() {
               const isCompleted = isCourseCompleted(course.slug);
               
               return (
-                <Card key={course.slug} className="group hover:shadow-lg hover:scale-[1.01] transition-all duration-200">
+                <Card key={course.slug} className="group hover:shadow-lg hover:scale-[1.01] transition-all duration-700">
                   <CardHeader className="pb-3">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
@@ -148,7 +148,7 @@ export default function LevelDetailPage() {
                     <div className="flex items-center justify-between">
                       <Link
                         href={`/levels/${levelId}/${course.slug}`}
-                        className={`inline-flex h-9 items-center rounded-md px-4 text-sm font-medium transition-all duration-200 ease-out hover:shadow-lg hover:scale-[1.02] active:scale-95 active:transition-transform active:duration-75 ${
+                        className={`inline-flex h-9 items-center rounded-md px-4 text-sm font-medium transition-all duration-700 ease-out hover:shadow-lg hover:scale-[1.02] active:scale-95 active:transition-transform active:duration-75 ${
                           isCompleted
                             ? 'bg-green-600 text-white hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-600'
                             : 'bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90'

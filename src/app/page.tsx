@@ -25,13 +25,13 @@ export default function HomePage() {
           <div className="flex gap-4 justify-center">
             <Link
               href="/levels"
-              className="inline-flex h-12 items-center rounded-md bg-black px-8 text-base font-medium text-white transition-all duration-200 ease-out hover:bg-black/90 hover:shadow-lg hover:scale-[1.02] active:scale-95 active:transition-transform active:duration-75 dark:bg-white dark:text-black dark:hover:bg-white/90"
+              className="inline-flex h-12 items-center rounded-md bg-black px-8 text-base font-medium text-white transition-all duration-700 ease-out hover:bg-black/90 hover:shadow-lg hover:scale-[1.02] active:scale-95 active:transition-transform active:duration-75 dark:bg-white dark:text-black dark:hover:bg-white/90"
             >
               Start Your Journey
             </Link>
             <Link
               href="/levels"
-              className="inline-flex h-12 items-center rounded-md border border-zinc-300 dark:border-zinc-600 px-8 text-base font-medium transition-all duration-200 ease-out hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:scale-[1.02] active:scale-95"
+              className="inline-flex h-12 items-center rounded-md border border-zinc-300 dark:border-zinc-600 px-8 text-base font-medium transition-all duration-700 ease-out hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:scale-[1.02] active:scale-95"
             >
               View All Levels
             </Link>
@@ -49,7 +49,7 @@ export default function HomePage() {
           
           <div className="grid md:grid-cols-5 gap-4">
             {levels.map((level, index) => (
-              <Card key={level.id} className="text-center hover:shadow-lg transition-all duration-200 hover:scale-[1.02]">
+              <Card key={level.id} className="text-center hover:shadow-lg transition-all duration-700 hover:scale-[1.02]">
                 <CardHeader className="pb-3">
                   <div className={`w-12 h-12 mx-auto rounded-full flex items-center justify-center text-lg font-bold ${
                     index === 0 ? 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300' :
@@ -136,7 +136,7 @@ export default function HomePage() {
           <h2 className="text-3xl font-bold text-center">What You&apos;ll Master</h2>
           <div className="space-y-4">
             {levels.slice(0, 3).map((level, index) => (
-              <Card key={level.id} className="hover:shadow-lg transition-all duration-200">
+              <Card key={level.id} className="hover:shadow-lg transition-all duration-700">
                 <CardHeader>
                   <div className="flex items-center gap-4">
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ${
