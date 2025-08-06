@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { Progress } from "../ui/primitives";
 import { getCompletedCourses, getAllCourses } from "@/lib/levels";
+import { Github } from "lucide-react";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -31,6 +32,16 @@ export default function Nav() {
         <nav className="ml-auto flex items-center gap-4 text-sm">
           <Link className="hover:underline" href="/levels">All Levels</Link>
           <Link className="hover:underline" href="/levels/1">Start Learning</Link>
+          <a
+            href="https://github.com/sambitcreate/learn-python"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-md p-1.5 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition"
+            aria-label="View project on GitHub"
+            title="View project on GitHub"
+          >
+            <Github className="h-5 w-5 text-zinc-700 dark:text-zinc-300" />
+          </a>
         </nav>
       </div>
       <div className="mx-auto max-w-5xl px-4 pb-3">

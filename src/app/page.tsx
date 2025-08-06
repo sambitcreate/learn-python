@@ -6,6 +6,8 @@ import { BookOpen, Target, Trophy, Zap, ChevronDown } from "lucide-react";
 
 export const dynamic = "force-static";
 
+import Footer from "@/components/layout/Footer";
+
 export default function HomePage() {
   const totalCourses = levels.reduce((sum, level) => sum + level.courses.length, 0);
 
@@ -189,6 +191,7 @@ export default function HomePage() {
 
 
       </main>
+      <Footer />
     </div>
   );
 }
