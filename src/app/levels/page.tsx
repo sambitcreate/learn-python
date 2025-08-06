@@ -4,6 +4,7 @@ import Link from "next/link";
 import { levels, isLevelUnlocked, getLevelProgress } from "@/lib/levels";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, Button, Progress } from "@/components/ui/primitives";
 import Nav from "@/components/layout/Nav";
+import Footer from "@/components/layout/Footer";
 import { Lock, CheckCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -90,7 +91,8 @@ export default function LevelsPage() {
                       ) : (
                         <Button 
                           disabled 
-                          className="inline-flex h-10 items-center rounded-md px-6 text-sm font-medium opacity-50 cursor-not-allowed"
+                          variant="destructive"
+                          className="inline-flex h-10 items-center rounded-md px-6 text-sm font-medium cursor-not-allowed !bg-amber-500 !text-white opacity-100 dark:!bg-amber-600 hover:shadow-lg"
                         >
                           <Lock className="w-4 h-4 mr-2" />
                           Locked
@@ -153,6 +155,7 @@ export default function LevelsPage() {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }
