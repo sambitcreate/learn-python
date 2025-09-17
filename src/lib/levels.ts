@@ -6,6 +6,7 @@ export type Course = {
   placeholder?: string;
   rule: { type: "equals" | "includesAny" | "equalsCaseInsensitive" | "keywordEQ"; value?: string | string[]; };
   hint?: string;
+  hints?: string[];
   lesson?: string;
 };
 
@@ -762,8 +763,21 @@ export function isLevelUnlocked(levelId: number): boolean {
 
 export function getCompletedCourses(): string[] {
   if (typeof window === 'undefined') return [];
-  const completed = localStorage.getItem('completedCourses');
-  return completed ? JSON.parse(completed) : [];
+  // Migration: prefer namespaced v1 key; fallback to legacy 'completedCourses'
+  const v1 = window.localStorage.getItem('learnpy::progress:v1');
+  if (v1) {
+    try { return JSON.parse(v1); } catch { /* ignore */ }
+  }
+  const legacy = window.localStorage.getItem('completedCourses');
+  if (legacy) {
+    try {
+      const parsed = JSON.parse(legacy);
+      window.localStorage.setItem('learnpy::progress:v1', JSON.stringify(parsed));
+      window.localStorage.removeItem('completedCourses');
+      return parsed;
+    } catch { /* ignore */ }
+  }
+  return [];
 }
 
 export function markCourseCompleted(levelId: number, courseSlug: string): void {
@@ -774,7 +788,7 @@ export function markCourseCompleted(levelId: number, courseSlug: string): void {
   
   if (!completed.includes(courseKey)) {
     completed.push(courseKey);
-    localStorage.setItem('completedCourses', JSON.stringify(completed));
+    localStorage.setItem('learnpy::progress:v1', JSON.stringify(completed));
   }
 }
 
@@ -787,4 +801,35 @@ export function getLevelProgress(levelId: number): number {
   const completedInLevel = levelCourses.filter(courseKey => completed.includes(courseKey));
   
   return Math.round((completedInLevel.length / levelCourses.length) * 100);
+}
+
+export function getFirstIncompleteCourse(): { levelId: number; slug: string } | null {
+  for (const level of levels) {
+    const lvlId = level.id;
+    const completed = getCompletedCourses();
+    const first = level.courses.find((c) => !completed.includes(`${lvlId}-${c.slug}`));
+    if (first && (lvlId === 1 || isLevelUnlocked(lvlId))) {
+      return { levelId: lvlId, slug: first.slug };
+    }
+  }
+  return null;
+}
+
+export function setLastVisitedCourse(levelId: number, slug: string) {
+  if (typeof window === 'undefined') return;
+  try {
+    window.localStorage.setItem('learnpy::lastVisited', JSON.stringify({ levelId, slug }));
+  } catch {}
+}
+
+export function getLastVisitedCourse(): { levelId: number; slug: string } | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const raw = window.localStorage.getItem('learnpy::lastVisited');
+    if (!raw) return null;
+    const val = JSON.parse(raw) as { levelId: number; slug: string } | null;
+    return val ?? null;
+  } catch {
+    return null;
+  }
 }

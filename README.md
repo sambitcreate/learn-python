@@ -18,6 +18,15 @@ A comprehensive, interactive web application for learning Python programming fro
 - **Modern UI**: Clean, responsive design built with Tailwind CSS and shadcn/ui components
 - **No Registration Required**: Start learning immediately without creating an account
 
+### New UX Enhancements
+- **Resume CTA**: Continue where you left off from the nav or home CTA
+- **Theme Toggle**: Light/Dark/System theme with persistence and no flicker
+- **Settings**: Reset, export, and import your local progress (`/settings`)
+- **Global Search**: Find lessons by title/keywords across all levels (`/search`)
+- **Lesson Navigation**: Always-visible Previous/Next controls (Next disabled until solved)
+- **Multi-hint Ladder**: Reveal hints progressively; solution shown after 3 failed attempts
+- **Accessibility Upgrades**: Labeled inputs, aria-live feedback, improved focus and reduced motion support
+
 ### Learning Levels
 
 **Level 1: Python Fundamentals**
@@ -134,6 +143,8 @@ src/
 │   ├── globals.css              # Global styles
 │   ├── layout.tsx               # Root layout
 │   ├── page.tsx                 # Landing page
+│   ├── search/page.tsx          # Global search for lessons
+│   ├── settings/page.tsx        # Reset/export/import progress
 │   └── learn/
 │       ├── layout.tsx           # Learning layout with navigation
 │       ├── page.tsx             # Course curriculum overview
@@ -161,6 +172,17 @@ src/
 - **UI Components**: Custom components inspired by [shadcn/ui](https://ui.shadcn.com/)
 - **State Management**: React hooks + localStorage
 - **Deployment**: Vercel-ready (or any Node.js hosting)
+
+## 🧭 New User Tips
+- Click "Continue" in the top-right to resume your last lesson
+- Use the theme toggle in the nav to switch light/dark/system
+- Manage your progress backup at `/settings` (export/import/reset)
+- Search any lesson at `/search`
+
+## 🔐 Data & Storage
+- Progress is stored under the namespaced key `learnpy::progress:v1`
+- A one-time migration copies legacy `completedCourses` to the new key
+- Resume uses `learnpy::lastVisited`
 
 ## 🤝 Contributing
 
@@ -198,6 +220,11 @@ When adding or modifying lessons:
 - Follow the existing TypeScript and React patterns
 - Use Tailwind CSS for styling
 - Ensure components are accessible and responsive
+
+## 🚧 Roadmap
+- MDX content pipeline to replace inline HTML lessons and eliminate `dangerouslySetInnerHTML`
+- In-browser Python runner using Pyodide with sandboxed tests per challenge
+- Static search index from content frontmatter for richer search and SEO metadata
 - Add comments for complex logic
 - Test your changes across different browsers
 

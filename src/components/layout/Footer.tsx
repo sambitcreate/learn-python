@@ -4,11 +4,11 @@ import React from "react";
 
 export default function Footer() {
   const linkClass =
-    "text-blue-600 hover:text-blue-700 underline-offset-2 hover:underline";
+    "text-primary hover:text-primary/90 underline-offset-2 hover:underline";
 
   return (
-    <footer className="w-full border-t border-gray-200/60 py-6 mt-10">
-      <div className="mx-auto max-w-5xl px-4 text-center text-sm text-gray-600">
+    <footer className="w-full border-t border-border py-6 mt-10 bg-background">
+      <div className="mx-auto max-w-5xl px-4 text-center text-sm text-muted-foreground">
         <span className="mr-1">Made in NYC❤️ by</span>
         <a
           href="https://sambitbiswas.com"

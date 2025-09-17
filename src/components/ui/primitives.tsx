@@ -68,7 +68,14 @@ Input.displayName = "Input";
 export function Progress({ value, className }: { value: number; className?: string }) {
   const v = Math.max(0, Math.min(100, value));
   return (
-    <div className={cn("w-full h-2 rounded-full bg-secondary overflow-hidden transition-all duration-700 hover:h-3 hover:shadow-sm", className)}>
+    <div
+      className={cn("w-full h-2 rounded-full bg-secondary overflow-hidden transition-all duration-700 hover:h-3 hover:shadow-sm", className)}
+      role="progressbar"
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={v}
+      aria-label="Progress"
+    >
       <div
         className="h-full bg-primary transition-all duration-500 ease-out"
         style={{ width: `${v}%` }}
@@ -80,8 +87,8 @@ export function Progress({ value, className }: { value: number; className?: stri
 export function Alert({ title, description, variant = "default", className }: { title?: string; description?: string; variant?: "default" | "destructive"; className?: string }) {
   const styles =
     variant === "destructive"
-      ? "border-red-300 bg-red-50 text-red-900 dark:border-red-800 dark:bg-red-900/30 dark:text-red-200"
-      : "border-zinc-200 bg-zinc-50 text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100";
+      ? "border-destructive bg-destructive text-destructive-foreground"
+      : "border-border bg-card text-card-foreground";
   return (
     <div className={cn("w-full rounded-lg border p-4 transition-all duration-700 ease-out animate-in slide-in-from-top-2 fade-in-0 hover:shadow-md hover:scale-[1.01]", styles, className)}>
       {title && <div className="font-semibold">{title}</div>}
@@ -92,7 +99,7 @@ export function Alert({ title, description, variant = "default", className }: { 
 
 export function A({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) {
   return (
-    <Link href={href} className={cn("underline underline-offset-4 hover:text-zinc-900 dark:hover:text-zinc-50 transition-all duration-600 ease-out hover:underline-offset-8 hover:decoration-2", className)}>
+    <Link href={href} className={cn("underline underline-offset-4 hover:text-foreground transition-all duration-600 ease-out hover:underline-offset-8 hover:decoration-2", className)}>
       {children}
     </Link>
   );

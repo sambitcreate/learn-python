@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { levels } from "@/lib/levels";
+import ResumeCTA from "@/components/ResumeCTA";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/primitives";
 import Nav from "@/components/layout/Nav";
 import { BookOpen, Target, Trophy, Zap, ChevronDown } from "lucide-react";
@@ -12,28 +13,29 @@ export default function HomePage() {
   const totalCourses = levels.reduce((sum, level) => sum + level.courses.length, 0);
 
   return (
-    <div className="bg-white dark:bg-black text-zinc-900 dark:text-zinc-100">
+    <div className="bg-background text-foreground">
       <Nav />
       {/* Hero Section - Full Viewport Height */}
       <section className="min-h-screen flex flex-col justify-center items-center text-center space-y-8 px-4 relative">
         <div className="space-y-6">
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-black dark:text-white">
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
             Master Python Programming
           </h1>
-          <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Learn Python through 5 progressive levels with {totalCourses} interactive courses. 
             Build from basics to expert-level applications.
           </p>
           <div className="flex gap-4 justify-center">
             <Link
               href="/levels"
-              className="inline-flex h-12 items-center rounded-md bg-black px-8 text-base font-medium text-white transition-all duration-700 ease-out hover:bg-black/90 hover:shadow-lg hover:scale-[1.02] active:scale-95 active:transition-transform active:duration-75 dark:bg-white dark:text-black dark:hover:bg-white/90"
+              className="inline-flex h-12 items-center rounded-md bg-primary px-8 text-base font-medium text-primary-foreground transition-all duration-700 ease-out hover:bg-primary/90 hover:shadow-lg hover:scale-[1.02] active:scale-95 active:transition-transform active:duration-75"
             >
               Start Your Journey
             </Link>
+            <ResumeCTA />
             <Link
               href="/levels"
-              className="inline-flex h-12 items-center rounded-md border border-zinc-300 dark:border-zinc-600 px-8 text-base font-medium transition-all duration-700 ease-out hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:scale-[1.02] active:scale-95"
+              className="inline-flex h-12 items-center rounded-md border border-border px-8 text-base font-medium transition-all duration-700 ease-out hover:bg-accent/10 hover:scale-[1.02] active:scale-95"
             >
               View All Levels
             </Link>
@@ -41,7 +43,7 @@ export default function HomePage() {
           
           {/* Down Arrow */}
           <div className="mt-8 flex justify-center animate-bounce">
-            <ChevronDown className="w-8 h-8 text-zinc-400 dark:text-zinc-600" />
+            <ChevronDown className="w-8 h-8 text-muted-foreground" />
           </div>
         </div>
       </section>
@@ -52,7 +54,7 @@ export default function HomePage() {
         <section className="space-y-8 py-8">
           <div className="text-center space-y-2">
             <h2 className="text-3xl font-bold">Your Learning Path</h2>
-            <p className="text-zinc-600 dark:text-zinc-400">
+            <p className="text-muted-foreground">
               Progress through 5 carefully designed levels, each building on the previous
             </p>
           </div>
@@ -75,10 +77,10 @@ export default function HomePage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <p className="text-xs text-zinc-600 dark:text-zinc-400 mb-2">
+                  <p className="text-xs text-muted-foreground mb-2">
                     {level.courses.length} courses
                   </p>
-                  <p className="text-xs text-zinc-500 dark:text-zinc-500">
+                  <p className="text-xs text-muted-foreground">
                     {level.title.replace(`Level ${level.id}: `, '')}
                   </p>
                 </CardContent>
@@ -93,11 +95,11 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="text-center">
               <CardHeader>
-                <Target className="w-8 h-8 mx-auto text-blue-600 dark:text-blue-400" />
+                <Target className="w-8 h-8 mx-auto text-primary" />
                 <CardTitle className="text-lg">Progressive Learning</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                <p className="text-sm text-muted-foreground">
                   Each level builds on the previous, ensuring solid foundations before advancing.
                 </p>
               </CardContent>
@@ -105,11 +107,11 @@ export default function HomePage() {
             
             <Card className="text-center">
               <CardHeader>
-                <Zap className="w-8 h-8 mx-auto text-yellow-600 dark:text-yellow-400" />
+                <Zap className="w-8 h-8 mx-auto text-primary" />
                 <CardTitle className="text-lg">Interactive Challenges</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                <p className="text-sm text-muted-foreground">
                   Learn by doing with hands-on coding challenges and instant feedback.
                 </p>
               </CardContent>
@@ -117,11 +119,11 @@ export default function HomePage() {
             
             <Card className="text-center">
               <CardHeader>
-                <BookOpen className="w-8 h-8 mx-auto text-green-600 dark:text-green-400" />
+                <BookOpen className="w-8 h-8 mx-auto text-primary" />
                 <CardTitle className="text-lg">Comprehensive Content</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                <p className="text-sm text-muted-foreground">
                   From basics to advanced topics like ML, web dev, and data science.
                 </p>
               </CardContent>
@@ -129,11 +131,11 @@ export default function HomePage() {
             
             <Card className="text-center">
               <CardHeader>
-                <Trophy className="w-8 h-8 mx-auto text-purple-600 dark:text-purple-400" />
+                <Trophy className="w-8 h-8 mx-auto text-primary" />
                 <CardTitle className="text-lg">Track Progress</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                <p className="text-sm text-muted-foreground">
                   Monitor your progress and unlock new levels as you master concepts.
                 </p>
               </CardContent>
@@ -165,12 +167,12 @@ export default function HomePage() {
                 <CardContent>
                   <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
                     {level.courses.slice(0, 6).map((course) => (
-                      <div key={course.slug} className="text-sm text-zinc-600 dark:text-zinc-400 bg-zinc-50 dark:bg-zinc-900 px-3 py-2 rounded">
+                      <div key={course.slug} className="text-sm text-muted-foreground bg-muted px-3 py-2 rounded">
                         {course.title}
                       </div>
                     ))}
                     {level.courses.length > 6 && (
-                      <div className="text-sm text-zinc-500 dark:text-zinc-500 px-3 py-2">
+                      <div className="text-sm text-muted-foreground px-3 py-2">
                         +{level.courses.length - 6} more
                       </div>
                     )}
@@ -182,7 +184,7 @@ export default function HomePage() {
           <div className="text-center">
             <Link
               href="/levels"
-              className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 font-medium"
+              className="inline-flex items-center text-primary hover:text-primary/80 font-medium"
             >
               Explore All 5 Levels →
             </Link>

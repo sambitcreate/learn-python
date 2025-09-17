@@ -38,14 +38,14 @@ export default function LevelDetailPage() {
 
   if (!level) {
     return (
-      <div className="min-h-screen bg-white dark:bg-black text-zinc-900 dark:text-zinc-100">
+      <div className="min-h-screen bg-background text-foreground">
         <Nav />
         <main className="mx-auto max-w-5xl px-4 py-8">
           <div className="text-center">
             <h1 className="text-2xl font-semibold mb-4">Level Not Found</h1>
             <Link 
               href="/levels"
-              className="inline-flex items-center text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-200"
+              className="inline-flex items-center text-primary hover:text-primary/80"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Levels
@@ -65,14 +65,14 @@ export default function LevelDetailPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black text-zinc-900 dark:text-zinc-100">
+    <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <main className="mx-auto max-w-5xl px-4 py-8 space-y-8">
         {/* Header */}
         <section className="space-y-4">
           <Link 
             href="/levels"
-            className="inline-flex items-center text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-200 transition-colors"
+            className="inline-flex items-center text-primary hover:text-primary/80 transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to All Levels
@@ -92,7 +92,7 @@ export default function LevelDetailPage() {
             </div>
             <div>
               <h1 className="text-3xl font-bold tracking-tight">{level.title}</h1>
-              <p className="text-lg text-zinc-600 dark:text-zinc-400 mt-1">
+              <p className="text-lg text-muted-foreground mt-1">
                 {level.description}
               </p>
             </div>
@@ -101,7 +101,7 @@ export default function LevelDetailPage() {
           {/* Progress Bar */}
           <div className="space-y-2">
             <div className="flex justify-between text-sm">
-              <span className="text-zinc-600 dark:text-zinc-400">
+              <span className="text-muted-foreground">
                 Level Progress: {level.courses.filter(c => isCourseCompleted(c.slug)).length} of {level.courses.length} courses completed
               </span>
               <span className="font-medium">{progress}%</span>
@@ -111,7 +111,7 @@ export default function LevelDetailPage() {
               className={`h-3 ${
                 progress === 100 
                   ? '[&>div]:bg-green-500' 
-                  : '[&>div]:bg-green-500'
+                  : ''
               }`}
             />
           </div>
@@ -130,7 +130,7 @@ export default function LevelDetailPage() {
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800 px-2 py-1 rounded">
+                          <span className="text-xs font-medium text-muted-foreground bg-muted px-2 py-1 rounded">
                             Course {index + 1}
                           </span>
                           {isCompleted && (
@@ -150,8 +150,8 @@ export default function LevelDetailPage() {
                         href={`/levels/${levelId}/${course.slug}`}
                         className={`inline-flex h-9 items-center rounded-md px-4 text-sm font-medium transition-all duration-700 ease-out hover:shadow-lg hover:scale-[1.02] active:scale-95 active:transition-transform active:duration-75 ${
                           isCompleted
-                            ? 'bg-green-600 text-white hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-600'
-                            : 'bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90'
+                            ? 'bg-green-600 text-white hover:bg-green-700'
+                            : 'bg-primary text-primary-foreground hover:bg-primary/90'
                         }`}
                       >
                         {isCompleted ? (
@@ -168,7 +168,7 @@ export default function LevelDetailPage() {
                       </Link>
                       
                       {course.lesson && (
-                        <div className="text-xs text-zinc-500 dark:text-zinc-400 max-w-xs truncate">
+                        <div className="text-xs text-muted-foreground max-w-xs truncate">
                           {course.lesson.substring(0, 50)}...
                         </div>
                       )}
@@ -195,7 +195,7 @@ export default function LevelDetailPage() {
             {levelId < 5 && (
               <Link
                 href={`/levels/${levelId + 1}`}
-                className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
+                className="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
               >
                 Continue to Level {levelId + 1}
                 <ArrowLeft className="w-4 h-4 ml-2 rotate-180" />
@@ -206,14 +206,14 @@ export default function LevelDetailPage() {
 
         {/* Next Level Preview */}
         {progress < 100 && levelId < 5 && (
-          <div className="mt-8 p-6 bg-gray-50 dark:bg-gray-900/30 rounded-xl border border-gray-200 dark:border-gray-800">
+          <div className="mt-8 p-6 bg-muted rounded-xl border border-border">
             <div className="flex items-center gap-3 mb-3">
-              <Lock className="w-5 h-5 text-gray-500" />
-              <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+              <Lock className="w-5 h-5 text-muted-foreground" />
+              <h3 className="text-lg font-semibold text-foreground">
                 Next: Level {levelId + 1}
               </h3>
             </div>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-muted-foreground">
               Complete this level to unlock the next stage of your Python journey!
             </p>
           </div>
