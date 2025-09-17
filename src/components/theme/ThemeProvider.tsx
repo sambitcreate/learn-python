@@ -30,6 +30,7 @@ function applyThemeClass(theme: Theme) {
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("system");
 
+  // Initialize theme from storage once on mount
   useEffect(() => {
     if (!isBrowser) return;
     try {
@@ -38,21 +39,23 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         setThemeState(saved);
         applyThemeClass(saved);
       } else {
-        // initialize based on system
         applyThemeClass("system");
       }
     } catch {
       // ignore
     }
+  }, []);
 
-    // listen to system changes if on system theme
+  // React to system changes when theme is set to system
+  useEffect(() => {
+    if (!isBrowser) return;
     const mql = window.matchMedia("(prefers-color-scheme: dark)");
     const onChange = () => {
       if (theme === "system") applyThemeClass("system");
     };
     mql.addEventListener?.("change", onChange);
     return () => mql.removeEventListener?.("change", onChange);
-  }, []);
+  }, [theme]);
 
   const setTheme = (t: Theme) => {
     setThemeState(t);
@@ -76,4 +79,3 @@ export function useTheme() {
   if (!ctx) throw new Error("useTheme must be used within ThemeProvider");
   return ctx;
 }
-

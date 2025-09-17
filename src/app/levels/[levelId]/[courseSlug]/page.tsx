@@ -126,11 +126,7 @@ export default function CoursePage() {
     return null;
   })();
 
-  const hints: string[] = Array.isArray((course as any).hints)
-    ? ((course as any).hints as string[])
-    : course.hint
-      ? [course.hint]
-      : [];
+  const hints: string[] = course.hints ?? (course.hint ? [course.hint] : []);
 
   const canRevealMoreHints = revealedHints < Math.min(hints.length, failures);
 
@@ -140,7 +136,8 @@ export default function CoursePage() {
   }
 
   function solutionText(): string | null {
-    const rule = course.rule;
+    const courseLocal = course!;
+    const rule = courseLocal.rule;
     switch (rule.type) {
       case "equals":
       case "equalsCaseInsensitive":

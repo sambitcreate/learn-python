@@ -39,7 +39,7 @@ export default function SettingsPage() {
       setMsg('Progress has been reset.');
       setErr(null);
       window.location.reload();
-    } catch (e) {
+    } catch {
       setErr('Failed to reset progress.');
     }
   }
@@ -73,7 +73,7 @@ export default function SettingsPage() {
       setMsg('Progress imported successfully.');
       setErr(null);
       setTimeout(() => window.location.reload(), 500);
-    } catch (e) {
+    } catch {
       setErr('Import failed. Please check the file format.');
     }
   }
